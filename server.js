@@ -12,7 +12,6 @@ app.use(express.static(path.join('www', 'build')));
 
 app.use(bodyParser.json());
 
-
 var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/dreamhouse';
 
 if (process.env.DATABASE_URL !== undefined) {
@@ -46,7 +45,6 @@ client.query('SELECT * FROM salesforce.broker__c', function(error, data) {
     // userTable = schema + 'user__c';
   }
 });
-
 
 app.get('/property', function(req, res) {
   client.query('SELECT * FROM ' + propertyTable, function(err, data) {
@@ -114,11 +112,11 @@ app.post('/login', function(req, res) {
           })
           res.status(201).json({user: signData, token: token, originPassword: data1.rows[0]});
         } else {
-          res.status(500).send(err);
+          res.status(500).json({error:err});
         }
       })
     } else {
-      res.status(500).send(err)
+      res.status(500).json({error: err})
     }
   })
 });
@@ -153,21 +151,18 @@ app.get('/profile/:id', function(req, res) {
 });
 
 app.put('/update/:id', function(req, res) {
-  const {email, password} = req.body;
+  const {password} = req.body;
     client.query('SELECT * FROM ' + userTable + ' WHERE id = ' + req.params.id, function(err, data) {
-      if (err) throw err;
+      if (err) res.status(500).json({err: err});
       if (password.trim() == '') {
-        client.query('UPDATE ' + userTable + ' SET email = $1 WHERE id = $2', [email, req.params.id], (err, user) => {
-          if (err) throw err;
-          res.status(200).json(user);
-        });
+        res.status(200).json({status: 'ok'})
       } else {
         bcryptjs.genSalt(10, function(err, salt) {
-          if (err) throw err;
+          if (err) res.status(500).json({err: err});
           bcryptjs.hash(password, salt, function(err, hash) {
-            if (err) throw err;
-              client.query('UPDATE ' + userTable + ' SET email = $1, password = $2 WHERE id = $3', [email, hash, req.params.id], (err, user) => {
-              if (err) throw err;
+            if (err) res.status(500).json({err: err});
+              client.query('UPDATE ' + userTable + ' SET password = $1 WHERE id = $2', [hash, req.params.id], (err, user) => {
+              if (err) res.status(500).json({err: err});
               res.status(200).json(user);
             })
           })
@@ -176,6 +171,14 @@ app.put('/update/:id', function(req, res) {
     });
   
 });
+
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'www/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
 
 var port = process.env.PORT || 8200;
 
