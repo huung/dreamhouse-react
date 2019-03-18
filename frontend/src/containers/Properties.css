@@ -1,0 +1,36 @@
+.property-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 8px;
+    padding-right: 8px;
+    cursor: pointer;
+}
+.property-container:hover{
+    background-color: #eae6e6;
+}
+.property-logo{
+    max-width: 56px;
+    max-height: 56px; 
+    min-width: 45px;
+    min-height: 49px;
+    margin: 8px 16px 8px 0px;
+}
+.property-content{
+    flex: 1;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #cccccc;
+}
+.property-content h2{
+    font-size: 1.3rem !important;
+    margin: 0 0 4px;
+    color: #333333;
+    font-weight: normal;
+    line-height: 1.2;
+}
+.property-content p{
+    margin: 0 0 2px;
+    font-size: 1.0rem;
+    line-height: normal;
+    color: #666;
+}
