@@ -33,6 +33,7 @@
 }
 
 .spanLink {
+  font-weight: bold;
   color: #178cd0;
   cursor: pointer
 }
