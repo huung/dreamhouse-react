@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { changeTitle } from '../redux/actions/layout'
 import {findBrokerById} from '../redux/actions/brokers'
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import "./Broker.css";
 
 class Broker extends React.Component {

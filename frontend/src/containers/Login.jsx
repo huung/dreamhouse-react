@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { changeTitle, expanseNavbar } from '../redux/actions/layout'
 import { alertError, alertSuccess } from '../redux/actions/alert';
 import { login } from '../redux/actions/auth'
-import { withStyles } from '@material-ui/core/styles';
 import './Signup.css';
 
 class Login extends Component {

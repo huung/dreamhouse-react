@@ -5,7 +5,6 @@ import { alertError, alertSuccess } from '../redux/actions/alert';
 import { signup } from '../redux/actions/auth';
 import { changeTitle, expanseNavbar } from '../redux/actions/layout';
 import {signUpEmailError} from '../redux/actions/auth'
-import { withStyles } from '@material-ui/core/styles';
 import './Signup.css';
 
 class Signup extends Component {
