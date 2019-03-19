@@ -1,20 +1,20 @@
 .registerContainer{
-  maxWidth: 400,
-  margin: 18vh auto 0,
-  padding: 70px 20px 20px,
-  borderRadius: 8,
-  backgroundColor: #84bf4199,
-  position: relative,
+  maxWidth: 400;
+  margin: 18vh auto 0;
+  padding: 70px 20px 20px;
+  borderRadius: 8;
+  backgroundColor: #84bf4199;
+  position: relative;
   boxShadow: 0 2px 5px 1px #888888
 },
 
 .loginForm {
-  maxWidth: 400,
-  margin: 23vh auto 0,
-  padding: 75px 20px 20px,
-  position: relative,
-  borderRadius: 8,
-  backgroundColor: #84bf4199,
+  maxWidth: 400;
+  margin: 23vh auto 0;
+  padding: 75px 20px 20px;
+  position: relative;
+  borderRadius: 8;
+  backgroundColor: #84bf4199;
   boxShadow: 0 2px 5px 1px #888888
 },
 
@@ -23,21 +23,21 @@
 },
 
 .logo: {
-  boxShadow: 0 3px 8px 3px #2f1f1f,
-  position: absolute,
-  width: 150,
-  top: -80,
-  left: calc(50% - 77px),
-  borderRadius: 50%,
+  boxShadow: 0 3px 8px 3px #2f1f1f;
+  position: absolute;
+  width: 150;
+  top: -80;
+  left: calc(50% - 77px);
+  borderRadius: 50%;
   border: 4px solid #84bf41
 },
 
 .spanLink: {
-  color: #178cd0,
-  cursor: 'pointer'
+  color: #178cd0;
+  cursor: pointer
 },
 
 .emailError: {
-  borderColor: red,
+  borderColor: red;
   boxShadow: 0 0 0 0.2rem #f14a4abf
 }

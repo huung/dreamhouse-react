@@ -63,14 +63,14 @@ class Signup extends Component {
 
     render() {
         const state = this.state
-        const {classes, reduxStore} = this.props
+        const { reduxStore } = this.props
         const emailError = reduxStore.auth.emailError
         return (
             <div className="registerContainer">
                 <img src={process.env.PUBLIC_URL + '/images/logo.png'} className="logo" alt="Logo"/>
                 <div className="form-group">
                     <label htmlFor="email" className="registerLabel">Email Address:</label>
-                    <input type="email" id="email" className={'form-control ' + (emailError ? classes.emailError : '')} placeholder="Please put your email address" value={state.email} onChange={this.handleChange('email')}/>
+                    <input type="email" id="email" className={'form-control ' + (emailError ? 'emailError' : '')} placeholder="Please put your email address" value={state.email} onChange={this.handleChange('email')}/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="password" className="registerLabel">Password:</label>
@@ -105,4 +105,4 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({changeTitle, expanseNavbar, alertError, alertSuccess, signup, signUpEmailError}, dispatch)
 }
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(Signup));
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

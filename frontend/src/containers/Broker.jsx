@@ -25,7 +25,7 @@ class Broker extends React.Component {
     }
 
     render() {
-        const { classes, reduxStore} = this.props;
+        const { reduxStore} = this.props;
         const broker = reduxStore.broker.broker;
         return (
             <div style={{position: 'relative'}}>
@@ -93,4 +93,4 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({changeTitle, findBrokerById}, dispatch)
 }
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(Broker));
+export default connect(mapStateToProps, mapDispatchToProps)(Broker);

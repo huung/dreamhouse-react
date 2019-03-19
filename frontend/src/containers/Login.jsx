@@ -59,7 +59,6 @@ class Login extends Component {
     }
 
     render() {
-        const {classes} = this.props;
         return (
             <div className="loginForm">
                   <img src={process.env.PUBLIC_URL + '/images/logo.png'} className="logo" alt="Logo"/>
@@ -98,4 +97,4 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ changeTitle, expanseNavbar, login, alertError, alertSuccess }, dispatch)
 }
 
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(Login));
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
