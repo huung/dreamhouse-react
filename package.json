@@ -5,7 +5,8 @@
   },
   "scripts": {
     "dev": "node node_modules/nodemon/bin/nodemon.js server.js",
-    "start": "node server"
+    "start": "node server",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
   "devDependencies": {
     "nodemon": "latest"
