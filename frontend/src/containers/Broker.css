@@ -1,0 +1,58 @@
+.brokerContainer {
+  position: absolute,
+  width: 100%,
+  textAlign: center,
+},
+
+.brokerContent {
+  margin: 100px 15px 15px,
+  color: #ffffff,
+  boxShadow: 0 2px 5px 0.5px #cccccc,
+  borderRadius: 3
+},
+
+.brokerHeader {
+  margin: -100px auto 0px
+},
+
+.brokerLogo {
+  width: 150,
+  height: 150,
+  borderRadius: 50%,
+  border: 4px solid #ffffff
+},
+
+.brokerBody {
+  display: flex,
+  alignItems: center,
+  justifyContent: space-between,
+  padding: 5px 8px,
+  cursor: pointer,
+},
+
+.brokerIcon {
+  maxWidth: 56,
+  maxHeight: 56,
+  margin: 8px 16px 8px 0px,
+  fontSize: 20,
+  minWidth: 45,
+  color: #333333
+},
+
+.brokerTextGroup {
+  flex: 1,
+  paddingLeft: 8,
+  paddingBottom: 5,
+  borderBottom: 1px solid #cccccc
+},
+
+.brokerParagraph {
+  margin: 0 0 2px,
+  fontSize: 1.2rem,
+  lineHeight: normal,
+  color: #222222
+},
+
+.brokerSmall {
+  color: #555555,
+}
