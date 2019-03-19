@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { changeTitle } from '../redux/actions/layout'
 import { findPropertyAll } from '../redux/actions/properties'
 import './Properties.css'
+
 class Properties extends React.Component {
     constructor(props) {
         super(props);
@@ -13,7 +14,7 @@ class Properties extends React.Component {
     };
     componentWillMount() {
         this.props.changeTitle(this.state.title)
-        this.props.findPropertyAll()  
+        this.props.findPropertyAll()
     }
 
     PropertyDetail(id) {
@@ -25,7 +26,7 @@ class Properties extends React.Component {
         return (
             <div style={{padding: 20}}>
                 {
-                    (reduxStore.properties.properties && reduxStore.properties.properties.length) ? 
+                    (reduxStore.properties.properties && reduxStore.properties.properties.length) ?
                     reduxStore.properties.properties.map((property, index) => (
                         <div className="property-container" key={index} onClick={() => this.PropertyDetail(property.sfid)}>
                             <img src={property.thumbnail__c} className="property-logo" alt={property.title__c}/>

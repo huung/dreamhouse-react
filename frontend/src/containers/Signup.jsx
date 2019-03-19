@@ -6,37 +6,8 @@ import { signup } from '../redux/actions/auth';
 import { changeTitle, expanseNavbar } from '../redux/actions/layout';
 import {signUpEmailError} from '../redux/actions/auth'
 import { withStyles } from '@material-ui/core/styles';
-const styles = {
-    registerContainer: {
-        maxWidth: 400,
-        margin: '18vh auto 0',
-        padding: '70px 20px 20px',
-        borderRadius: 8,
-        backgroundColor: '#84bf4199',
-        position: 'relative',
-        boxShadow: '0 2px 5px 1px #888888'
-    },
-    registerLabel: {
-        color: '#333333'
-    },
-    logo: {
-        boxShadow: '0 3px 8px 3px #2f1f1f',
-        position: 'absolute',
-        width: 150,
-        top: -80,
-        left: 'calc(50% - 77px)',
-        borderRadius: '50%',
-        border: '4px solid #84bf41'
-    },
-    spanLink: {
-        borderBottom: '1px solid #178cd0',
-        cursor: 'pointer'
-    },
-    emailError: {
-        borderColor: 'red',
-        boxShadow: '0 0 0 0.2rem #f14a4abf'
-    }
-}
+import './Signup.css';
+
 class Signup extends Component {
     constructor(props) {
         super(props);
@@ -68,15 +39,15 @@ class Signup extends Component {
             return re.test(String(email).toLowerCase());
         }
         if (this.state.email === '') {
-            this.props.alertError('You should put down email address')
+            this.props.alertError('Please use an email address')
         } else if (!validateEmail(this.state.email)) {
-            this.props.alertError('Your email type is incorrect. please retry!');
+            this.props.alertError('Your email type is incorrect, please retry!');
         } else if (this.state.password === '') {
-            this.props.alertError('You should put down password')
+            this.props.alertError('Please use a password')
         } else if (this.state.confirm === '') {
-            this.props.alertError('You should put down confirm password')
+            this.props.alertError('Please use a confirm password')
         } else if (this.state.password !== this.state.confirm) {
-            this.props.alertError('Your password is not same with your confirm password');
+            this.props.alertError('Your password is not the same as your confirm password');
         } else {
             let data = {
                 email: this.state.email,
@@ -95,25 +66,25 @@ class Signup extends Component {
         const {classes, reduxStore} = this.props
         const emailError = reduxStore.auth.emailError
         return (
-            <div className={classes.registerContainer}>
-                <img src={process.env.PUBLIC_URL + '/images/logo.png'} className={classes.logo} alt="Logo"/>
+            <div className="registerContainer">
+                <img src={process.env.PUBLIC_URL + '/images/logo.png'} className="logo" alt="Logo"/>
                 <div className="form-group">
-                    <label htmlFor="email" className={classes.registerLabel}>Email Address :</label>
+                    <label htmlFor="email" className="registerLabel">Email Address:</label>
                     <input type="email" id="email" className={'form-control ' + (emailError ? classes.emailError : '')} placeholder="Please put your email address" value={state.email} onChange={this.handleChange('email')}/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="password" className={classes.registerLabel}>Password :</label>
+                    <label htmlFor="password" className="registerLabel">Password:</label>
                     <input type="password" id="password" className="form-control" placeholder="Please put your password" value={state.password} onChange={this.handleChange('password')}/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="confirm" className={classes.registerLabel}>Confirm Password :</label>
+                    <label htmlFor="confirm" className="registerLabel">Confirm Password:</label>
                     <input type="password" id="confirm" className="form-control" placeholder="Please put your confirm password" value={state.confirm} onChange={this.handleChange('confirm')}/>
                 </div>
-                <div className="form-group text-right">
+                <div className="form-group text-center">
                     <button type="button" className="btn btn-primary" onClick={() => this.handleRegister()}>Register</button>
                 </div>
                 <div className="form-group text-center">
-                    <p>Do you have already account? <span className={classes.spanLink} onClick={() => this.handleRoute('/login')}>Login</span></p>
+                    <p>Do you already have an account? <span className="spanLink" onClick={() => this.handleRoute('/login')}>Login</span></p>
                 </div>
             </div>
         )

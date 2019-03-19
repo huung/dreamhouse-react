@@ -28,21 +28,21 @@ const styles = {
     media: {
       objectFit: 'cover',
     }
-  };
+};
 const shareItems = ['Text', 'Email', 'Facebook', 'Twitter']
 
 class SimpleDialog extends React.Component {
     handleClose = () => {
       this.props.onClose(this.props.selectedValue);
     };
-  
+
     handleListItemClick = value => {
       this.props.onClose(value);
     };
-  
+
     render() {
       const { classes, onClose, selectedValue, ...other } = this.props;
-  
+
       return (
         <Dialog onClose={this.handleClose} aria-labelledby="simple-dialog-title" {...other}>
           <div>
@@ -58,7 +58,7 @@ class SimpleDialog extends React.Component {
       );
     }
   }
-  
+
 SimpleDialog.propTypes = {
     classes: PropTypes.object.isRequired,
     onClose: PropTypes.func,
@@ -100,8 +100,8 @@ class Property extends React.Component {
 
     likeHandle() {
         let property = this.state.property
-        property.likes += 1 
-        
+        property.likes += 1
+
     }
 
     shareHandle() {
@@ -118,7 +118,7 @@ class Property extends React.Component {
                     open={this.state.open}
                     onClose={this.handleModalClose}
                 />
-                {property ? 
+                {property ?
                     <Card>
                     <CardActionArea>
                         <CardMedia
@@ -192,7 +192,7 @@ class Property extends React.Component {
                             <BottomNavigationAction label="Share"  icon={<i className="fas fa-share" style={{fontSize: 20, color: '#84BF41'}}></i>} style={{maxWidth: 'unset'}} onClick={() => this.shareHandle()}/>
                         </BottomNavigation>
                     </CardActions>
-                </Card> 
+                </Card>
                     : <div></div>
                 }
             </div>
