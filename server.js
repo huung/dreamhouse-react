@@ -7,12 +7,13 @@ var pg = require('pg');
 
 var app = express();
 
-app.use(express.static('www'));
-app.use(express.static(path.join('www', 'build')));
+// app.use(express.static('www'));
+// app.use(express.static(path.join('www', 'build')));
+app.use(express.static(path.join(__dirname, 'frontend/build')));
 
 app.use(bodyParser.json());
 
-var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/dreamhouse';
+var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5000/dreamhouse';
 
 if (process.env.DATABASE_URL !== undefined) {
   pg.defaults.ssl = true;
@@ -124,7 +125,7 @@ app.post('/login', function(req, res) {
 app.post('/register', function(req, res) {
   const {email, password} = req.body;
   client.query('SELECT * FROM ' + userTable + ' WHERE email = $1', [req.body.email], (err, data) => {
-    if (err) { 
+    if (err) {
       res.status(500).send('err');
     } else if (data.rows.length > 0) {
       res.status(200).json('The email addresss is exist already');
@@ -169,7 +170,7 @@ app.put('/update/:id', function(req, res) {
         })
       }
     });
-  
+
 });
 
 app.get('/*', function(req, res) {
