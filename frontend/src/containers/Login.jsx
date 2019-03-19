@@ -72,11 +72,11 @@ class Login extends Component {
                 <div className="form-group">
                     <label className="loginLabel"><input type="checkbox" value={this.state.remember} onChange={this.handleChange('remember')} style={{marginRight: 10}}/>Remember me?</label>
                 </div>
-                <div className="form-action text-right">
+                <div className="form-action text-center">
                     <button type="button" className="btn btn-primary" onClick={() => this.handleLogin()}>Login</button>
                 </div>
                 <div className="form-group" style={{marginTop: 15}}>
-                    <p className="text-center">You don't have an account? <span className="spanLink" onClick={() => this.handleRoute('/signup')}>Sign up</span></p>
+                    <p className="text-center">You do not have an account? <span className="spanLink" onClick={() => this.handleRoute('/signup')}>Sign up</span></p>
                 </div>
             </div>
         )

@@ -69,15 +69,15 @@ class Signup extends Component {
                 <img src={process.env.PUBLIC_URL + '/images/logo.png'} className="logo" alt="Logo"/>
                 <div className="form-group">
                     <label htmlFor="email" className="registerLabel">Email Address:</label>
-                    <input type="email" id="email" className={'form-control ' + (emailError ? 'emailError' : '')} placeholder="Please put your email address" value={state.email} onChange={this.handleChange('email')}/>
+                    <input type="email" id="email" className={'form-control ' + (emailError ? 'emailError' : '')} placeholder="Your email address" value={state.email} onChange={this.handleChange('email')}/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="password" className="registerLabel">Password:</label>
-                    <input type="password" id="password" className="form-control" placeholder="Please put your password" value={state.password} onChange={this.handleChange('password')}/>
+                    <input type="password" id="password" className="form-control" placeholder="Your password" value={state.password} onChange={this.handleChange('password')}/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="confirm" className="registerLabel">Confirm Password:</label>
-                    <input type="password" id="confirm" className="form-control" placeholder="Please put your confirm password" value={state.confirm} onChange={this.handleChange('confirm')}/>
+                    <input type="password" id="confirm" className="form-control" placeholder="Confirm your password" value={state.confirm} onChange={this.handleChange('confirm')}/>
                 </div>
                 <div className="form-group text-center">
                     <button type="button" className="btn btn-primary" onClick={() => this.handleRegister()}>Register</button>
