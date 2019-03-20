@@ -41,6 +41,9 @@ const styles = theme => ({
   },
   subtitle: {
     padding: '10px 15px'
+  },
+  blackIcon : {
+    color: '#000'
   }
 })
 

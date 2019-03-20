@@ -108,10 +108,17 @@ class Property extends React.Component {
         this.handleModalOpen()
     }
 
+<<<<<<< HEAD
     // FormatPrice(op) {
     //   let fp = op.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     //   return fp
     // }
+=======
+    FormatPrice(op) {
+      let fp = op.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      return fp
+    }
+>>>>>>> 55af1935ace7c5d9d9d752c7d3f5082a876b27e7
 
     render() {
         const { classes, reduxStore } = this.props
@@ -166,7 +173,11 @@ class Property extends React.Component {
                                     <i className="material-icons">turned_in</i>
                                 </ListItemIcon>
                                 <ListItemText>
+<<<<<<< HEAD
                                     Asking Price<span style={{float: 'right', color: '#84BF41'}}>{'$' + property.price__c}</span>
+=======
+                                    Asking Price<span style={{float: 'right', color: '#84BF41'}}>{'$' + this.FormatPrice(property.price__c)}</span>
+>>>>>>> 55af1935ace7c5d9d9d752c7d3f5082a876b27e7
                                 </ListItemText>
                             </ListItem>
                             <Divider />
