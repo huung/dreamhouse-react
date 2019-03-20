@@ -41,9 +41,6 @@ const styles = theme => ({
   },
   subtitle: {
     padding: '10px 15px'
-  },
-  blackIcon : {
-    color: '#000'
   }
 })
 
@@ -96,7 +93,7 @@ class Sidebar extends Component {
                     <Link key={index} to={item.path} style={{ textDecoration: 'none'}} >
                         <ListItem button>
                         <ListItemIcon>
-                            <i className="material-icons">>{item.icon}</i>
+                            <i className="material-icons">{item.icon}</i>
                         </ListItemIcon>
                         <ListItemText primary={item.label} />
                         </ListItem>
@@ -124,7 +121,7 @@ class Sidebar extends Component {
                     <Link key={index} to={item.path} style={{ textDecoration: 'none'}}>
                         <ListItem button>
                         <ListItemIcon>
-                            <i className="material-icons">>{item.icon}</i>
+                            <i className="material-icons">{item.icon}</i>
                         </ListItemIcon>
                         <ListItemText primary={item.label} />
                         </ListItem>
