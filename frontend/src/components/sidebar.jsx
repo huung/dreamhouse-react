@@ -35,12 +35,15 @@ const styles = theme => ({
     justifyContent: 'flex-end',
   },
   sideLogo: {
-    width: '6vw', 
-    minWidth: 50, 
+    width: '6vw',
+    minWidth: 50,
     margin: 'auto'
   },
   subtitle: {
     padding: '10px 15px'
+  },
+  blackIcon : {
+    color: '#000'
   }
 })
 
@@ -59,7 +62,7 @@ const AccountItems = [
     {label: 'Profile', icon: 'person', path: '/profile', title: 'Profile'},
     {label: 'Settings', icon: 'settings', path: '/settings', title: 'Settings'}
   ]
-  
+
 class Sidebar extends Component {
 
     handleDrawerClose = () => {
@@ -93,7 +96,7 @@ class Sidebar extends Component {
                     <Link key={index} to={item.path} style={{ textDecoration: 'none'}} >
                         <ListItem button>
                         <ListItemIcon>
-                            <i className="material-icons">{item.icon}</i>
+                            <i className={classes.blackIcon + 'material-icons'}>{item.icon}</i>
                         </ListItemIcon>
                         <ListItemText primary={item.label} />
                         </ListItem>
@@ -107,7 +110,7 @@ class Sidebar extends Component {
                     <Link key={index} to={item.path} style={{ textDecoration: 'none'}}>
                         <ListItem button>
                         <ListItemIcon>
-                            <i className="material-icons">{item.icon}</i>
+                          <i className={classes.blackIcon + 'material-icons'}>{item.icon}</i>
                         </ListItemIcon>
                         <ListItemText primary={item.label} />
                         </ListItem>
@@ -121,7 +124,7 @@ class Sidebar extends Component {
                     <Link key={index} to={item.path} style={{ textDecoration: 'none'}}>
                         <ListItem button>
                         <ListItemIcon>
-                            <i className="material-icons">{item.icon}</i>
+                            <i className={classes.blackIcon + 'material-icons'}>{item.icon}</i>
                         </ListItemIcon>
                         <ListItemText primary={item.label} />
                         </ListItem>
