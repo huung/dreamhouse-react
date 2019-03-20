@@ -21,6 +21,11 @@ class Properties extends React.Component {
         this.props.history.push('/property-detail/' + id)
     }
 
+    FormatPrice(op) {
+      let fp = op.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      return fp
+    }
+
     render() {
         const {reduxStore} = this.props
         return (
@@ -32,7 +37,7 @@ class Properties extends React.Component {
                             <img src={property.thumbnail__c} className="property-logo" alt={property.title__c}/>
                             <div className="property-content">
                                 <h2>{property.title__c}</h2>
-                                <p>{property.city__c + ', ' + property.state__c + ' - $' + property.price__c}</p>
+                                <p>{property.city__c + ', ' + property.state__c + ' - $' + this.FormatPrice(property.price__c)}</p>
                             </div>
                         </div>
                     )) : <div></div>
